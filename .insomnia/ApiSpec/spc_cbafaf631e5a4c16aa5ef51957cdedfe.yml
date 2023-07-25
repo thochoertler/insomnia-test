@@ -1,0 +1,3612 @@
+_id: spc_cbafaf631e5a4c16aa5ef51957cdedfe
+type: ApiSpec
+parentId: wrk_1da0d181828c43e0b9e77fb5f21609f8
+modified: 1690292424546
+created: 1690291657021
+fileName: New Document
+contents: >-
+  {
+    "openapi": "3.0.2",
+    "info": {
+      "title": "Schrack Shop V3",
+      "description": "This is the new Schrack Shop API ",
+      "version": "0.12",
+      "contact": {
+        "name": "API Support",
+        "email": "j.wohlschlager@schrack.com"
+      },
+      "termsOfService": "https://www.schrack.com/general-terms-and-conditions"
+    },
+    "tags": [
+      {
+        "name": "Cart",
+        "description": "Get cart informations and trigger cart actions."
+      },
+      {
+        "name": "Translations",
+        "description": "Get translations from catalogs."
+      },
+      {
+        "name": "SolrConfig",
+        "description": "Get configurations for SOLR Server."
+      },
+      {
+        "name": "Categories",
+        "description": "Get category related information's."
+      },
+      {
+        "name": "Products",
+        "description": "Get product related information's."
+      },
+      {
+        "name": "Advisor",
+        "description": "Advisor information for user."
+      },
+      {
+        "name": "Navigation Primary",
+        "description": "Shows the main navigation"
+      },
+      {
+        "name": "Newsletter",
+        "description": "Newsletter Subscription for Client"
+      },
+      {
+        "name": "Frontend Container",
+        "description": "Recieves and sets(WIP) template structures through containers and it's contents."
+      },
+      {
+        "name": "User actions",
+        "description": "User associated actions which can be executed"
+      },
+      {
+        "name": "User",
+        "description": "Informations about a logged in user"
+      },
+      {
+        "name": "Search",
+        "description": "Search the shop"
+      },
+      {
+        "name": "Product List",
+        "description": "Product List of users Sortiments Collection"
+      },
+      {
+        "name": "User Area",
+        "description": "Offers/Orders/Deliveries/Credits/Documents/Bills/Residues"
+      }
+    ],
+    "servers": [
+      {
+        "description": "Schrack Servers",
+        "url": "{Protocol}//{Server}/{basePath}",
+        "variables": {
+          "Protocol": {
+            "enum": [
+              "https:",
+              "http:"
+            ],
+            "default": "https:",
+            "description": "Protocol"
+          },
+          "Server": {
+            "enum": [
+              "schrack-at.local.plan2.net",
+              "test-de.schrack.com",
+              "tl-magebe1.test.schrack.com"
+            ],
+            "default": "schrack-at.local.plan2.net",
+            "description": "Server URL"
+          },
+          "basePath": {
+            "enum": [
+              "shop/frontapi/counter",
+              "de/frontapi/counter"
+            ],
+            "default": "shop/frontapi/counter",
+            "description": "Backend Test Server DE - base path"
+          }
+        }
+      }
+    ],
+    "components": {
+      "schemas": {
+        "frontendContainer_content": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "0055470f-bdd2-41fc-a510-f6886d51dd8d"
+              },
+              "parent_container_id": {
+                "type": "string",
+                "example": "770de43f-a2ba-46d2-a553-e1604f2325ea"
+              },
+              "parent_id": {
+                "type": "string",
+                "example": ""
+              },
+              "sort": {
+                "type": "integer",
+                "format": "int32",
+                "example": 0
+              },
+              "state": {
+                "type": "string",
+                "example": "L"
+              },
+              "activeFromDT": {
+                "type": "string",
+                "format": "nullable"
+              },
+              "activeToDT": {
+                "type": "string",
+                "format": "nullable"
+              },
+              "type": {
+                "type": "string",
+                "example": "TXT"
+              },
+              "name": {
+                "type": "string",
+                "example": "footer_navigation_buy_and_order_link1_text"
+              },
+              "value": {
+                "type": "string",
+                "example": "Schnellerfassung"
+              }
+            }
+          }
+        },
+        "frontendContainer_kids": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "07874323-3e5c-11ed-bbd1-0050568e1007"
+              },
+              "parent_id": {
+                "type": "string",
+                "example": "0786d5d4-3e5c-11ed-bbd1-0050568e1007"
+              },
+              "sort": {
+                "type": "integer",
+                "format": "int32",
+                "example": 1
+              },
+              "state": {
+                "type": "string",
+                "example": "L"
+              },
+              "activeFromDT": {
+                "type": "string",
+                "format": "nullable"
+              },
+              "activeToDT": {
+                "type": "string",
+                "format": "nullable"
+              },
+              "tag": {
+                "type": "string",
+                "example": "topbar"
+              },
+              "name": {
+                "type": "string",
+                "example": "topbar_child_24hDelivery"
+              },
+              "content": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "0055470f-bdd2-41fc-a510-f6886d51dd8d"
+                    },
+                    "parent_container_id": {
+                      "type": "string",
+                      "example": "770de43f-a2ba-46d2-a553-e1604f2325ea"
+                    },
+                    "parent_id": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "sort": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 0
+                    },
+                    "state": {
+                      "type": "string",
+                      "example": "L"
+                    },
+                    "activeFromDT": {
+                      "type": "string",
+                      "format": "nullable"
+                    },
+                    "activeToDT": {
+                      "type": "string",
+                      "format": "nullable"
+                    },
+                    "type": {
+                      "type": "string",
+                      "example": "TXT"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "footer_navigation_buy_and_order_link1_text"
+                    },
+                    "value": {
+                      "type": "string",
+                      "example": "Schnellerfassung"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "frontendContainer_container": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "0786d5d4-3e5c-11ed-bbd1-0050568e1007"
+            },
+            "parent_id": {
+              "type": "string",
+              "example": "0786d5d4-3e5c-11ed-bbd1-0050568e1007"
+            },
+            "sort": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            },
+            "state": {
+              "type": "string",
+              "example": "L"
+            },
+            "activeFromDT": {
+              "type": "string",
+              "format": "nullable"
+            },
+            "activeToDT": {
+              "type": "string",
+              "format": "nullable"
+            },
+            "tag": {
+              "type": "string",
+              "example": "topbar"
+            },
+            "name": {
+              "type": "string",
+              "example": "topbar_container"
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "example": "07874323-3e5c-11ed-bbd1-0050568e1007"
+                  },
+                  "parent_id": {
+                    "type": "string",
+                    "example": "0786d5d4-3e5c-11ed-bbd1-0050568e1007"
+                  },
+                  "sort": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 1
+                  },
+                  "state": {
+                    "type": "string",
+                    "example": "L"
+                  },
+                  "activeFromDT": {
+                    "type": "string",
+                    "format": "nullable"
+                  },
+                  "activeToDT": {
+                    "type": "string",
+                    "format": "nullable"
+                  },
+                  "tag": {
+                    "type": "string",
+                    "example": "topbar"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "topbar_child_24hDelivery"
+                  },
+                  "content": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "example": "0055470f-bdd2-41fc-a510-f6886d51dd8d"
+                        },
+                        "parent_container_id": {
+                          "type": "string",
+                          "example": "770de43f-a2ba-46d2-a553-e1604f2325ea"
+                        },
+                        "parent_id": {
+                          "type": "string",
+                          "example": ""
+                        },
+                        "sort": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 0
+                        },
+                        "state": {
+                          "type": "string",
+                          "example": "L"
+                        },
+                        "activeFromDT": {
+                          "type": "string",
+                          "format": "nullable"
+                        },
+                        "activeToDT": {
+                          "type": "string",
+                          "format": "nullable"
+                        },
+                        "type": {
+                          "type": "string",
+                          "example": "TXT"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "footer_navigation_buy_and_order_link1_text"
+                        },
+                        "value": {
+                          "type": "string",
+                          "example": "Schnellerfassung"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "frontendContainer_log": {
+          "type": "object",
+          "properties": {
+            "RT214730--": {
+              "type": "object",
+              "properties": {
+                "20": {
+                  "type": "object",
+                  "properties": {
+                    "qty": {
+                      "type": "string",
+                      "example": "0.0000"
+                    },
+                    "stockLocation": {
+                      "type": "string",
+                      "format": "nullable"
+                    },
+                    "pickup": {
+                      "type": "object",
+                      "properties": {
+                        "salesunit": {
+                          "type": "string",
+                          "example": "1.00"
+                        },
+                        "isDefaultPickup": {
+                          "type": "boolean"
+                        },
+                        "stockName": {
+                          "type": "string",
+                          "example": "Store Graz"
+                        }
+                      }
+                    },
+                    "stockNo": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 20
+                    },
+                    "formattedQty": {
+                      "type": "string",
+                      "example": "0 Stk"
+                    }
+                  }
+                },
+                "30": {
+                  "type": "object",
+                  "properties": {
+                    "qty": {
+                      "type": "string",
+                      "example": "0.0000"
+                    },
+                    "stockLocation": {
+                      "type": "string",
+                      "format": "nullable"
+                    },
+                    "pickup": {
+                      "type": "object",
+                      "properties": {
+                        "salesunit": {
+                          "type": "string",
+                          "example": "1.00"
+                        },
+                        "isDefaultPickup": {
+                          "type": "boolean"
+                        },
+                        "stockName": {
+                          "type": "string",
+                          "example": "Store Innsbruck"
+                        }
+                      }
+                    },
+                    "stockNo": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 30
+                    },
+                    "formattedQty": {
+                      "type": "string",
+                      "example": "0 Stk"
+                    }
+                  }
+                },
+                "40": {
+                  "type": "object",
+                  "properties": {
+                    "qty": {
+                      "type": "string",
+                      "example": "0.0000"
+                    },
+                    "stockLocation": {
+                      "type": "string",
+                      "format": "nullable"
+                    },
+                    "pickup": {
+                      "type": "object",
+                      "properties": {
+                        "salesunit": {
+                          "type": "string",
+                          "example": "1.00"
+                        },
+                        "isDefaultPickup": {
+                          "type": "boolean"
+                        },
+                        "stockName": {
+                          "type": "string",
+                          "example": "Store Salzburg"
+                        }
+                      }
+                    },
+                    "stockNo": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 40
+                    },
+                    "formattedQty": {
+                      "type": "string",
+                      "example": "0 Stk"
+                    }
+                  }
+                },
+                "50": {
+                  "type": "object",
+                  "properties": {
+                    "qty": {
+                      "type": "string",
+                      "example": "0.0000"
+                    },
+                    "stockLocation": {
+                      "type": "string",
+                      "format": "nullable"
+                    },
+                    "pickup": {
+                      "type": "object",
+                      "properties": {
+                        "salesunit": {
+                          "type": "string",
+                          "example": "1.00"
+                        },
+                        "isDefaultPickup": {
+                          "type": "boolean"
+                        },
+                        "stockName": {
+                          "type": "string",
+                          "example": "Store Dornbirn"
+                        }
+                      }
+                    },
+                    "stockNo": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 50
+                    },
+                    "formattedQty": {
+                      "type": "string",
+                      "example": "0 Stk"
+                    }
+                  }
+                },
+                "60": {
+                  "type": "object",
+                  "properties": {
+                    "qty": {
+                      "type": "string",
+                      "example": "0.0000"
+                    },
+                    "stockLocation": {
+                      "type": "string",
+                      "format": "nullable"
+                    },
+                    "pickup": {
+                      "type": "object",
+                      "properties": {
+                        "salesunit": {
+                          "type": "string",
+                          "example": "1.00"
+                        },
+                        "isDefaultPickup": {
+                          "type": "boolean"
+                        },
+                        "stockName": {
+                          "type": "string",
+                          "example": "Store Klagenfurt"
+                        }
+                      }
+                    },
+                    "stockNo": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 60
+                    },
+                    "formattedQty": {
+                      "type": "string",
+                      "example": "0 Stk"
+                    }
+                  }
+                },
+                "70": {
+                  "type": "object",
+                  "properties": {
+                    "qty": {
+                      "type": "string",
+                      "example": "0.0000"
+                    },
+                    "stockLocation": {
+                      "type": "string",
+                      "format": "nullable"
+                    },
+                    "pickup": {
+                      "type": "object",
+                      "properties": {
+                        "salesunit": {
+                          "type": "string",
+                          "example": "1.00"
+                        },
+                        "isDefaultPickup": {
+                          "type": "boolean"
+                        },
+                        "stockName": {
+                          "type": "string",
+                          "example": "Store Wien"
+                        }
+                      }
+                    },
+                    "stockNo": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 70
+                    },
+                    "formattedQty": {
+                      "type": "string",
+                      "example": "0 Stk"
+                    }
+                  }
+                },
+                "80": {
+                  "type": "object",
+                  "properties": {
+                    "qty": {
+                      "type": "string",
+                      "example": "54.0000"
+                    },
+                    "stockLocation": {
+                      "type": "string",
+                      "format": "nullable"
+                    },
+                    "delivery": {
+                      "type": "object",
+                      "properties": {
+                        "salesunit": {
+                          "type": "string",
+                          "example": "1.00"
+                        },
+                        "deliveryHours": {
+                          "type": "string",
+                          "example": "24"
+                        },
+                        "deliveryStockType": {
+                          "type": "string",
+                          "example": "local"
+                        },
+                        "formattedDeliveryTime": {
+                          "type": "string",
+                          "example": "in 1 Werktag"
+                        }
+                      }
+                    },
+                    "stockNo": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 80
+                    },
+                    "formattedQty": {
+                      "type": "string",
+                      "example": "54 Stk"
+                    }
+                  }
+                },
+                "hideQuantities": {
+                  "type": "boolean"
+                },
+                "isForcedOrder": {
+                  "type": "boolean"
+                },
+                "pickupQtySum": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 0
+                },
+                "nearestDeliveryQty": {
+                  "type": "object",
+                  "properties": {
+                    "local": {
+                      "type": "object",
+                      "properties": {
+                        "stockNo": {
+                          "type": "integer",
+                          "format": "int32",
+                          "example": 80
+                        },
+                        "qty": {
+                          "type": "string",
+                          "example": "54.0000"
+                        },
+                        "formattedQty": {
+                          "type": "string",
+                          "example": "54 Stk"
+                        },
+                        "formattedDeliveryTime": {
+                          "type": "string",
+                          "example": "in 1 Werktag"
+                        },
+                        "deliveryTime": {
+                          "type": "object",
+                          "properties": {
+                            "days": {
+                              "type": "integer",
+                              "format": "int32",
+                              "example": 1
+                            },
+                            "weeks": {
+                              "type": "integer",
+                              "format": "int32",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "central": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 0
+                    },
+                    "provider": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 0
+                    }
+                  }
+                },
+                "deliveryQtySum": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 54
+                },
+                "overallQtySum": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 54
+                },
+                "formattedPickupQtySum": {
+                  "type": "string",
+                  "example": "0 Stk"
+                },
+                "formattedDeliveryQtySum": {
+                  "type": "string",
+                  "example": "54 Stk"
+                },
+                "formattedOverallQtySum": {
+                  "type": "string",
+                  "example": "54 Stk"
+                },
+                "isDiscontinuation": {
+                  "type": "boolean"
+                },
+                "isStsAvailable": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": 1
+                },
+                "shopCountry": {
+                  "type": "string",
+                  "example": "AT"
+                },
+                "minOrderQty": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "salesUnitQty": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "formattedMinOrderQty": {
+                  "type": "string",
+                  "example": "1 Stk"
+                },
+                "formattedSalesUnitQty": {
+                  "type": "string",
+                  "example": "1 Stk"
+                },
+                "leavings": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          }
+        },
+        "category_information": {
+          "type": "object",
+          "properties": {
+            "entity_id": {
+              "type": "string",
+              "example": "1745444"
+            },
+            "entity_type_id": {
+              "type": "string",
+              "example": "3"
+            },
+            "attribute_set_id": {
+              "type": "string",
+              "example": "0"
+            },
+            "parent_id": {
+              "type": "string",
+              "example": "1745443"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2020-11-12T00:07:13+01:00"
+            },
+            "updated_at": {
+              "type": "string",
+              "example": "2020-11-12 00:07:14"
+            },
+            "path": {
+              "type": "string",
+              "example": "1/2/1745229/1745332/1745443/1745444"
+            },
+            "position": {
+              "type": "string",
+              "example": "3362"
+            },
+            "level": {
+              "type": "string",
+              "example": "5"
+            },
+            "children_count": {
+              "type": "string",
+              "example": "0"
+            },
+            "custom_layout_update": {
+              "type": "string",
+              "nullable": true
+            },
+            "description": {
+              "type": "string",
+              "example": "SCHRACK vorkonfektionierte Installationskabel der QUICK CONNECT LINE basieren auf dem Schrack Technik Installationskabel Cat.7 S/FTP AWG23 1000 MHz. Diese werden vorkonfektioniert geliefert und entsprechen der Klasse Ea. Sie werden in der Farbe RAL5015 (blau) geliefert. Die Installationskabel sind bereits mit zwei Kontaktblöcken bestückt und professionell vorkonfektioniert. Beide Kabelenden sind mit Einziehschutz, Laminieretikett und Seriennummer versehen. Jedes Kabel wird im Werk getestet und das Prüfprotokoll beigepackt. Die vorkonfektionierten Installationskabel werden nur mit den Kontaktblöcken geliefert.<br>Folgende Module können nach dem Verlegen des Kabels werkzeuglos mit nur wenigen Handgriffen auf die Kontaktblöcke aufgeschnappt werden:<br><tab>•QUICK CONNECT LINE Buchse RJ45 geschirmt Cat.6a (SFB), PoE+<br><tab>•QUICK CONNECT LINE Stecker RJ45 geschirmt Cat.6a, PoE+<br><tab>•QUICK CONNECT LINE Kupplung / Verlängerung geschirmt Cat.6a, PoE+"
+            },
+            "meta_keywords": {
+              "type": "string",
+              "nullable": true
+            },
+            "schrack_facet_list": {
+              "type": "string",
+              "example": "schrack_dop_euroclass,schrack_produkt"
+            },
+            "schrack_property_list": {
+              "type": "string",
+              "example": "schrack_preiseinheit,schrack_mengeneinheit,schrack_nettolaenge,schrack_nettobreite,schrack_nettohoehe,schrack_nettotiefe,schrack_nettodurchmesser,schrack_nettogewicht,schrack_algewicht,schrack_cu_gewicht,schrack_verlustleistung,schrack_ambienttemperaturemin,schrack_ambienttemperaturemax,schrack_dop_euroclass,schrack_dop_smoke_production,schrack_dop_droplets,schrack_dop_acidity"
+            },
+            "available_sort_by": {
+              "type": "string",
+              "nullable": true
+            },
+            "custom_use_parent_settings": {
+              "type": "string",
+              "example": "0"
+            },
+            "custom_apply_to_products": {
+              "type": "string",
+              "example": "0"
+            },
+            "is_active": {
+              "type": "string",
+              "example": "1"
+            },
+            "include_in_menu": {
+              "type": "string",
+              "example": "1"
+            },
+            "custom_design": {
+              "type": "string",
+              "nullable": true
+            },
+            "url_key": {
+              "type": "string",
+              "example": "quick-connect-line-vorkonfektionierte-installationskabel"
+            },
+            "name": {
+              "type": "string",
+              "example": "QUICK CONNECT LINE vorkonfektionierte Installationskabel"
+            },
+            "schrack_group_id": {
+              "type": "string",
+              "example": "87-01-06#87-01-06/18#18/18-10#18-10/18-10-01"
+            },
+            "schrack_strategic_pillar": {
+              "type": "string",
+              "nullable": true
+            },
+            "schrack_image_url": {
+              "type": "string",
+              "example": "foto/f_hslvi7g15-v04.jpg"
+            },
+            "schrack_thumbnail_url": {
+              "type": "string",
+              "example": "thumb66x66/f_hslvi7g15-v04.jpg"
+            },
+            "url_path": {
+              "type": "string",
+              "example": "netzwerktechnik-sat/netzwerkverkabelung-kupfer/quick-connect-line-cat-6a-stp-system-vorkonfektioniert/quick-connect-line-vorkonfektionierte-installationskabel.html"
+            },
+            "custom_design_from": {
+              "type": "string",
+              "nullable": true
+            },
+            "custom_design_to": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        },
+        "product_zero": {
+          "type": "number",
+          "example": 0
+        },
+        "product_nearestDelivery": {
+          "type": "object",
+          "properties": {
+            "deliveryTime": {
+              "type": "object",
+              "properties": {
+                "days": {
+                  "type": "number",
+                  "example": 2
+                },
+                "weeks": {
+                  "type": "number",
+                  "example": 0
+                }
+              }
+            },
+            "formattedDeliveryTime": {
+              "type": "string",
+              "example": "in 1 Werktag"
+            },
+            "formattedQty": {
+              "type": "string",
+              "example": "391 Stk"
+            },
+            "qty": {
+              "type": "number",
+              "example": 391
+            },
+            "stockNo": {
+              "type": "number",
+              "example": 80
+            }
+          }
+        },
+        "product_leaving": {
+          "type": "object",
+          "properties": {
+            "qty": {
+              "type": "string",
+              "example": "100"
+            },
+            "formattedQty": {
+              "type": "string",
+              "example": "100 m"
+            },
+            "drumNo": {
+              "type": "string",
+              "example": "47"
+            },
+            "drumName": {
+              "type": "string",
+              "example": "C0"
+            }
+          }
+        },
+        "product_warehouse": {
+          "type": "object",
+          "properties": {
+            "qty": {
+              "type": "string",
+              "example": "11.0000"
+            },
+            "stockNo": {
+              "type": "number",
+              "example": 80
+            },
+            "formattedQty": {
+              "type": "string",
+              "example": "11 Stk"
+            },
+            "pickup": {
+              "type": "object",
+              "properties": {
+                "salesunit": {
+                  "type": "string",
+                  "example": "1.00"
+                },
+                "isDefaultPickup": {
+                  "type": "boolean"
+                },
+                "stockName": {
+                  "type": "string",
+                  "example": "Store Graz"
+                }
+              }
+            },
+            "delivery": {
+              "type": "object",
+              "properties": {
+                "salesunit": {
+                  "type": "string",
+                  "example": "1.00"
+                },
+                "deliveryStockType": {
+                  "type": "string",
+                  "example": "local"
+                },
+                "formattedDeliveryTime": {
+                  "type": "string",
+                  "example": "in 1 Werktag"
+                },
+                "thirdPartyLocation": {
+                  "type": "string",
+                  "example": "MH"
+                }
+              }
+            }
+          }
+        },
+        "product_pickup": {
+          "type": "object",
+          "properties": {
+            "salesunit": {
+              "type": "string",
+              "example": "1.00"
+            },
+            "isDefaultPickup": {
+              "type": "boolean"
+            },
+            "stockName": {
+              "type": "string",
+              "example": "Store Graz"
+            }
+          }
+        },
+        "product_delivery": {
+          "type": "object",
+          "properties": {
+            "salesunit": {
+              "type": "string",
+              "example": "1.00"
+            },
+            "deliveryStockType": {
+              "type": "string",
+              "example": "local"
+            },
+            "formattedDeliveryTime": {
+              "type": "string",
+              "example": "in 1 Werktag"
+            },
+            "thirdPartyLocation": {
+              "type": "string",
+              "example": "MH"
+            }
+          }
+        },
+        "product_information": {
+          "type": "object",
+          "properties": {
+            "entity_id": {
+              "type": "string",
+              "example": "119244"
+            },
+            "sku": {
+              "type": "string",
+              "example": "HSLVI7G35-"
+            },
+            "schrack_is_cable": {
+              "type": "string",
+              "example": "0"
+            },
+            "schrack_sts_main_article_sku": {
+              "type": "string",
+              "example": ""
+            },
+            "schrack_sts_sub_article_skus": {
+              "type": "string",
+              "example": ""
+            },
+            "schrack_sts_main_vpe_type": {
+              "type": "string",
+              "example": "BG"
+            },
+            "schrack_sts_main_vpe_size": {
+              "type": "string",
+              "example": "1"
+            },
+            "schrack_substitute": {
+              "type": "string",
+              "example": ""
+            },
+            "schrack_productgroup": {
+              "type": "string",
+              "example": "5200"
+            },
+            "schrack_qtyunit": {
+              "type": "string",
+              "example": "Stk"
+            },
+            "schrack_qtyunit_id": {
+              "type": "string",
+              "example": "Stk"
+            },
+            "schrack_sts_min_order_qty": {
+              "type": "string",
+              "example": "1"
+            },
+            "schrack_sts_batch_size": {
+              "type": "string",
+              "example": "1"
+            },
+            "schrack_priceunit": {
+              "type": "string",
+              "example": "1"
+            },
+            "schrack_packingunit": {
+              "type": "string",
+              "example": ""
+            },
+            "schrack_wws_ranking": {
+              "type": "string",
+              "example": "20765"
+            },
+            "schrack_sts_statuslocal": {
+              "type": "string",
+              "example": "std"
+            },
+            "schrack_sts_webshop_saleable": {
+              "type": "string",
+              "example": "1"
+            },
+            "schrack_sts_not_available": {
+              "type": "string",
+              "format": "nullable"
+            },
+            "schrack_sts_unmanaged_stocks": {
+              "type": "string",
+              "format": "nullable"
+            },
+            "schrack_sts_printed_manufacturer_number": {
+              "type": "string",
+              "example": ""
+            },
+            "schrack_sts_is_high_available": {
+              "type": "string",
+              "example": "0"
+            },
+            "schrack_sts_is_download": {
+              "type": "string",
+              "example": "0"
+            },
+            "schrack_sts_isaccessory": {
+              "type": "string",
+              "example": "0"
+            },
+            "schrack_sts_is_forced_accessory_val": {
+              "type": "string",
+              "example": "0"
+            },
+            "schrack_sts_showinventory": {
+              "type": "string",
+              "example": "1"
+            },
+            "schrack_sts_forsale": {
+              "type": "string",
+              "example": "0"
+            },
+            "schrack_main_category_eid": {
+              "type": "string",
+              "example": "1745444"
+            },
+            "schrack_qty_per_packaging_unit": {
+              "type": "string",
+              "example": "0"
+            },
+            "schrack_sts_green_stamp": {
+              "type": "string",
+              "example": "N"
+            },
+            "name": {
+              "type": "string",
+              "example": "Vorkonfektioniertes Installationskabel, Cat.7/AWG23, 35m"
+            },
+            "schrack_ambienttemperaturemax": {
+              "type": "string",
+              "example": "50°C"
+            },
+            "schrack_ambienttemperaturemin": {
+              "type": "string",
+              "example": "-10°C"
+            },
+            "schrack_long_text_addition": {
+              "type": "string",
+              "example": "2xKontaktblock, 2xEinziehschutz, ohne Buchsen"
+            },
+            "uvp": {
+              "type": "string",
+              "example": "70,64"
+            },
+            "properties": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string",
+                    "example": "price"
+                  },
+                  "label": {
+                    "type": "string",
+                    "example": "UVP exkl.Mwst."
+                  },
+                  "value": {
+                    "type": "string",
+                    "example": "70.6400"
+                  }
+                }
+              }
+            },
+            "mediadata": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "filetype": {
+                    "type": "string",
+                    "example": "onlinekatalog"
+                  },
+                  "url": {
+                    "type": "string",
+                    "example": "https://image.schrackcdn.com/kataloge/k-data-at7_at/?page=110"
+                  },
+                  "label": {
+                    "type": "string",
+                    "example": "Blätterkatalog"
+                  }
+                }
+              }
+            },
+            "schrack_main_category_name": {
+              "type": "string",
+              "example": "QUICK CONNECT LINE vorkonfektionierte Installationskabel"
+            },
+            "breadcrumb": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Netzwerktechnik & SAT"
+                  },
+                  "url": {
+                    "type": "string",
+                    "example": "netzwerktechnik-sat.html"
+                  },
+                  "img": {
+                    "type": "string",
+                    "example": "foto/f_87-01-06_hsemrj6gwa.png"
+                  },
+                  "thumbnail": {
+                    "type": "string",
+                    "format": "nullable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "product_price": {
+          "type": "object",
+          "properties": {
+            "currency": {
+              "type": "string",
+              "example": "EUR"
+            },
+            "price": {
+              "type": "string",
+              "example": "76,75"
+            },
+            "regularprice": {
+              "type": "string",
+              "example": "0,00"
+            },
+            "promovalidto": {
+              "type": "string",
+              "format": "nullable"
+            },
+            "surcharge": {
+              "type": "string",
+              "example": "7,48"
+            },
+            "priceunit": {
+              "type": "number",
+              "example": 1
+            },
+            "amount": {
+              "type": "string",
+              "example": "84,23"
+            },
+            "pricetype": {
+              "type": "number",
+              "example": 0
+            },
+            "mayseeprices": {
+              "type": "boolean"
+            },
+            "listprice": {
+              "type": "string",
+              "example": "70,64"
+            },
+            "saleable": {
+              "type": "boolean"
+            },
+            "statuslocal": {
+              "type": "string",
+              "example": "std"
+            },
+            "isRestricted": {
+              "type": "boolean"
+            },
+            "qtyunit": {
+              "type": "string",
+              "example": "Stk"
+            },
+            "formattedPriceunit": {
+              "type": "string",
+              "example": "1&nbsp;Stk"
+            },
+            "currentprice": {
+              "type": "string",
+              "example": "76,75"
+            },
+            "promotype": {
+              "type": "string",
+              "example": "normal"
+            },
+            "saving": {
+              "type": "string",
+              "example": "0,00"
+            },
+            "priceplussurcharge": {
+              "type": "string",
+              "example": "84,23"
+            }
+          }
+        },
+        "product_availability": {
+          "type": "object",
+          "properties": {
+            "leavings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "qty": {
+                    "type": "string",
+                    "example": "100"
+                  },
+                  "formattedQty": {
+                    "type": "string",
+                    "example": "100 m"
+                  },
+                  "drumNo": {
+                    "type": "string",
+                    "example": "47"
+                  },
+                  "drumName": {
+                    "type": "string",
+                    "example": "C0"
+                  }
+                }
+              }
+            },
+            "stockLocations": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "example": 80
+              }
+            },
+            "stockLocationsType": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "example": "deliveryc"
+              }
+            },
+            "nearestDeliveryQty": {
+              "type": "object",
+              "properties": {
+                "local": {
+                  "oneOf": [
+                    {
+                      "type": "number",
+                      "example": 0
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "deliveryTime": {
+                          "type": "object",
+                          "properties": {
+                            "days": {
+                              "type": "number",
+                              "example": 2
+                            },
+                            "weeks": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        },
+                        "formattedDeliveryTime": {
+                          "type": "string",
+                          "example": "in 1 Werktag"
+                        },
+                        "formattedQty": {
+                          "type": "string",
+                          "example": "391 Stk"
+                        },
+                        "qty": {
+                          "type": "number",
+                          "example": 391
+                        },
+                        "stockNo": {
+                          "type": "number",
+                          "example": 80
+                        }
+                      }
+                    }
+                  ]
+                },
+                "central": {
+                  "oneOf": [
+                    {
+                      "type": "number",
+                      "example": 0
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "deliveryTime": {
+                          "type": "object",
+                          "properties": {
+                            "days": {
+                              "type": "number",
+                              "example": 2
+                            },
+                            "weeks": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        },
+                        "formattedDeliveryTime": {
+                          "type": "string",
+                          "example": "in 1 Werktag"
+                        },
+                        "formattedQty": {
+                          "type": "string",
+                          "example": "391 Stk"
+                        },
+                        "qty": {
+                          "type": "number",
+                          "example": 391
+                        },
+                        "stockNo": {
+                          "type": "number",
+                          "example": 80
+                        }
+                      }
+                    }
+                  ]
+                },
+                "provider": {
+                  "oneOf": [
+                    {
+                      "type": "number",
+                      "example": 0
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "deliveryTime": {
+                          "type": "object",
+                          "properties": {
+                            "days": {
+                              "type": "number",
+                              "example": 2
+                            },
+                            "weeks": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        },
+                        "formattedDeliveryTime": {
+                          "type": "string",
+                          "example": "in 1 Werktag"
+                        },
+                        "formattedQty": {
+                          "type": "string",
+                          "example": "391 Stk"
+                        },
+                        "qty": {
+                          "type": "number",
+                          "example": 391
+                        },
+                        "stockNo": {
+                          "type": "number",
+                          "example": 80
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "deliveryQtySum": {
+              "type": "number",
+              "example": 3095
+            },
+            "formattedDeliveryQtySum": {
+              "type": "string",
+              "example": "3.095 m"
+            },
+            "formattedMinOrderQty": {
+              "type": "string",
+              "example": "1 m"
+            },
+            "formattedOverallQtySum": {
+              "type": "string",
+              "example": "3.095 m"
+            },
+            "formattedPickupQtySum": {
+              "type": "string",
+              "example": "0 m"
+            },
+            "formattedSalesUnitQty": {
+              "type": "string",
+              "example": "1 m"
+            },
+            "hideQuantities": {
+              "type": "boolean",
+              "example": false
+            },
+            "isDiscontinuation": {
+              "type": "boolean",
+              "example": false
+            },
+            "isForcedOrder": {
+              "type": "boolean",
+              "example": false
+            },
+            "isStsAvailable": {
+              "type": "number",
+              "example": 1
+            },
+            "minOrderQty": {
+              "type": "string",
+              "example": "1"
+            },
+            "overallQtySum": {
+              "type": "number",
+              "example": 3095
+            },
+            "pickupQtySum": {
+              "type": "number",
+              "example": 0
+            },
+            "salesUnitQty": {
+              "type": "string",
+              "example": "1"
+            },
+            "shopCountry": {
+              "type": "string",
+              "example": "AT"
+            }
+          },
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "qty": {
+                "type": "string",
+                "example": "11.0000"
+              },
+              "stockNo": {
+                "type": "number",
+                "example": 80
+              },
+              "formattedQty": {
+                "type": "string",
+                "example": "11 Stk"
+              },
+              "pickup": {
+                "type": "object",
+                "properties": {
+                  "salesunit": {
+                    "type": "string",
+                    "example": "1.00"
+                  },
+                  "isDefaultPickup": {
+                    "type": "boolean"
+                  },
+                  "stockName": {
+                    "type": "string",
+                    "example": "Store Graz"
+                  }
+                }
+              },
+              "delivery": {
+                "type": "object",
+                "properties": {
+                  "salesunit": {
+                    "type": "string",
+                    "example": "1.00"
+                  },
+                  "deliveryStockType": {
+                    "type": "string",
+                    "example": "local"
+                  },
+                  "formattedDeliveryTime": {
+                    "type": "string",
+                    "example": "in 1 Werktag"
+                  },
+                  "thirdPartyLocation": {
+                    "type": "string",
+                    "example": "MH"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "product_combined": {
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "entity_id": {
+                  "type": "string",
+                  "example": "119244"
+                },
+                "sku": {
+                  "type": "string",
+                  "example": "HSLVI7G35-"
+                },
+                "schrack_is_cable": {
+                  "type": "string",
+                  "example": "0"
+                },
+                "schrack_sts_main_article_sku": {
+                  "type": "string",
+                  "example": ""
+                },
+                "schrack_sts_sub_article_skus": {
+                  "type": "string",
+                  "example": ""
+                },
+                "schrack_sts_main_vpe_type": {
+                  "type": "string",
+                  "example": "BG"
+                },
+                "schrack_sts_main_vpe_size": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "schrack_substitute": {
+                  "type": "string",
+                  "example": ""
+                },
+                "schrack_productgroup": {
+                  "type": "string",
+                  "example": "5200"
+                },
+                "schrack_qtyunit": {
+                  "type": "string",
+                  "example": "Stk"
+                },
+                "schrack_qtyunit_id": {
+                  "type": "string",
+                  "example": "Stk"
+                },
+                "schrack_sts_min_order_qty": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "schrack_sts_batch_size": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "schrack_priceunit": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "schrack_packingunit": {
+                  "type": "string",
+                  "example": ""
+                },
+                "schrack_wws_ranking": {
+                  "type": "string",
+                  "example": "20765"
+                },
+                "schrack_sts_statuslocal": {
+                  "type": "string",
+                  "example": "std"
+                },
+                "schrack_sts_webshop_saleable": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "schrack_sts_not_available": {
+                  "type": "string",
+                  "format": "nullable"
+                },
+                "schrack_sts_unmanaged_stocks": {
+                  "type": "string",
+                  "format": "nullable"
+                },
+                "schrack_sts_printed_manufacturer_number": {
+                  "type": "string",
+                  "example": ""
+                },
+                "schrack_sts_is_high_available": {
+                  "type": "string",
+                  "example": "0"
+                },
+                "schrack_sts_is_download": {
+                  "type": "string",
+                  "example": "0"
+                },
+                "schrack_sts_isaccessory": {
+                  "type": "string",
+                  "example": "0"
+                },
+                "schrack_sts_is_forced_accessory_val": {
+                  "type": "string",
+                  "example": "0"
+                },
+                "schrack_sts_showinventory": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "schrack_sts_forsale": {
+                  "type": "string",
+                  "example": "0"
+                },
+                "schrack_main_category_eid": {
+                  "type": "string",
+                  "example": "1745444"
+                },
+                "schrack_qty_per_packaging_unit": {
+                  "type": "string",
+                  "example": "0"
+                },
+                "schrack_sts_green_stamp": {
+                  "type": "string",
+                  "example": "N"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Vorkonfektioniertes Installationskabel, Cat.7/AWG23, 35m"
+                },
+                "schrack_ambienttemperaturemax": {
+                  "type": "string",
+                  "example": "50°C"
+                },
+                "schrack_ambienttemperaturemin": {
+                  "type": "string",
+                  "example": "-10°C"
+                },
+                "schrack_long_text_addition": {
+                  "type": "string",
+                  "example": "2xKontaktblock, 2xEinziehschutz, ohne Buchsen"
+                },
+                "uvp": {
+                  "type": "string",
+                  "example": "70,64"
+                },
+                "properties": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "example": "price"
+                      },
+                      "label": {
+                        "type": "string",
+                        "example": "UVP exkl.Mwst."
+                      },
+                      "value": {
+                        "type": "string",
+                        "example": "70.6400"
+                      }
+                    }
+                  }
+                },
+                "mediadata": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "filetype": {
+                        "type": "string",
+                        "example": "onlinekatalog"
+                      },
+                      "url": {
+                        "type": "string",
+                        "example": "https://image.schrackcdn.com/kataloge/k-data-at7_at/?page=110"
+                      },
+                      "label": {
+                        "type": "string",
+                        "example": "Blätterkatalog"
+                      }
+                    }
+                  }
+                },
+                "schrack_main_category_name": {
+                  "type": "string",
+                  "example": "QUICK CONNECT LINE vorkonfektionierte Installationskabel"
+                },
+                "breadcrumb": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "example": "Netzwerktechnik & SAT"
+                      },
+                      "url": {
+                        "type": "string",
+                        "example": "netzwerktechnik-sat.html"
+                      },
+                      "img": {
+                        "type": "string",
+                        "example": "foto/f_87-01-06_hsemrj6gwa.png"
+                      },
+                      "thumbnail": {
+                        "type": "string",
+                        "format": "nullable"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "object",
+              "properties": {
+                "currency": {
+                  "type": "string",
+                  "example": "EUR"
+                },
+                "price": {
+                  "type": "string",
+                  "example": "76,75"
+                },
+                "regularprice": {
+                  "type": "string",
+                  "example": "0,00"
+                },
+                "promovalidto": {
+                  "type": "string",
+                  "format": "nullable"
+                },
+                "surcharge": {
+                  "type": "string",
+                  "example": "7,48"
+                },
+                "priceunit": {
+                  "type": "number",
+                  "example": 1
+                },
+                "amount": {
+                  "type": "string",
+                  "example": "84,23"
+                },
+                "pricetype": {
+                  "type": "number",
+                  "example": 0
+                },
+                "mayseeprices": {
+                  "type": "boolean"
+                },
+                "listprice": {
+                  "type": "string",
+                  "example": "70,64"
+                },
+                "saleable": {
+                  "type": "boolean"
+                },
+                "statuslocal": {
+                  "type": "string",
+                  "example": "std"
+                },
+                "isRestricted": {
+                  "type": "boolean"
+                },
+                "qtyunit": {
+                  "type": "string",
+                  "example": "Stk"
+                },
+                "formattedPriceunit": {
+                  "type": "string",
+                  "example": "1&nbsp;Stk"
+                },
+                "currentprice": {
+                  "type": "string",
+                  "example": "76,75"
+                },
+                "promotype": {
+                  "type": "string",
+                  "example": "normal"
+                },
+                "saving": {
+                  "type": "string",
+                  "example": "0,00"
+                },
+                "priceplussurcharge": {
+                  "type": "string",
+                  "example": "84,23"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "properties": {
+                "leavings": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "qty": {
+                        "type": "string",
+                        "example": "100"
+                      },
+                      "formattedQty": {
+                        "type": "string",
+                        "example": "100 m"
+                      },
+                      "drumNo": {
+                        "type": "string",
+                        "example": "47"
+                      },
+                      "drumName": {
+                        "type": "string",
+                        "example": "C0"
+                      }
+                    }
+                  }
+                },
+                "stockLocations": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "example": 80
+                  }
+                },
+                "stockLocationsType": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": "deliveryc"
+                  }
+                },
+                "nearestDeliveryQty": {
+                  "type": "object",
+                  "properties": {
+                    "local": {
+                      "oneOf": [
+                        {
+                          "type": "number",
+                          "example": 0
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "deliveryTime": {
+                              "type": "object",
+                              "properties": {
+                                "days": {
+                                  "type": "number",
+                                  "example": 2
+                                },
+                                "weeks": {
+                                  "type": "number",
+                                  "example": 0
+                                }
+                              }
+                            },
+                            "formattedDeliveryTime": {
+                              "type": "string",
+                              "example": "in 1 Werktag"
+                            },
+                            "formattedQty": {
+                              "type": "string",
+                              "example": "391 Stk"
+                            },
+                            "qty": {
+                              "type": "number",
+                              "example": 391
+                            },
+                            "stockNo": {
+                              "type": "number",
+                              "example": 80
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "central": {
+                      "oneOf": [
+                        {
+                          "type": "number",
+                          "example": 0
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "deliveryTime": {
+                              "type": "object",
+                              "properties": {
+                                "days": {
+                                  "type": "number",
+                                  "example": 2
+                                },
+                                "weeks": {
+                                  "type": "number",
+                                  "example": 0
+                                }
+                              }
+                            },
+                            "formattedDeliveryTime": {
+                              "type": "string",
+                              "example": "in 1 Werktag"
+                            },
+                            "formattedQty": {
+                              "type": "string",
+                              "example": "391 Stk"
+                            },
+                            "qty": {
+                              "type": "number",
+                              "example": 391
+                            },
+                            "stockNo": {
+                              "type": "number",
+                              "example": 80
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "provider": {
+                      "oneOf": [
+                        {
+                          "type": "number",
+                          "example": 0
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "deliveryTime": {
+                              "type": "object",
+                              "properties": {
+                                "days": {
+                                  "type": "number",
+                                  "example": 2
+                                },
+                                "weeks": {
+                                  "type": "number",
+                                  "example": 0
+                                }
+                              }
+                            },
+                            "formattedDeliveryTime": {
+                              "type": "string",
+                              "example": "in 1 Werktag"
+                            },
+                            "formattedQty": {
+                              "type": "string",
+                              "example": "391 Stk"
+                            },
+                            "qty": {
+                              "type": "number",
+                              "example": 391
+                            },
+                            "stockNo": {
+                              "type": "number",
+                              "example": 80
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "deliveryQtySum": {
+                  "type": "number",
+                  "example": 3095
+                },
+                "formattedDeliveryQtySum": {
+                  "type": "string",
+                  "example": "3.095 m"
+                },
+                "formattedMinOrderQty": {
+                  "type": "string",
+                  "example": "1 m"
+                },
+                "formattedOverallQtySum": {
+                  "type": "string",
+                  "example": "3.095 m"
+                },
+                "formattedPickupQtySum": {
+                  "type": "string",
+                  "example": "0 m"
+                },
+                "formattedSalesUnitQty": {
+                  "type": "string",
+                  "example": "1 m"
+                },
+                "hideQuantities": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "isDiscontinuation": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "isForcedOrder": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "isStsAvailable": {
+                  "type": "number",
+                  "example": 1
+                },
+                "minOrderQty": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "overallQtySum": {
+                  "type": "number",
+                  "example": 3095
+                },
+                "pickupQtySum": {
+                  "type": "number",
+                  "example": 0
+                },
+                "salesUnitQty": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "shopCountry": {
+                  "type": "string",
+                  "example": "AT"
+                }
+              },
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "qty": {
+                    "type": "string",
+                    "example": "11.0000"
+                  },
+                  "stockNo": {
+                    "type": "number",
+                    "example": 80
+                  },
+                  "formattedQty": {
+                    "type": "string",
+                    "example": "11 Stk"
+                  },
+                  "pickup": {
+                    "type": "object",
+                    "properties": {
+                      "salesunit": {
+                        "type": "string",
+                        "example": "1.00"
+                      },
+                      "isDefaultPickup": {
+                        "type": "boolean"
+                      },
+                      "stockName": {
+                        "type": "string",
+                        "example": "Store Graz"
+                      }
+                    }
+                  },
+                  "delivery": {
+                    "type": "object",
+                    "properties": {
+                      "salesunit": {
+                        "type": "string",
+                        "example": "1.00"
+                      },
+                      "deliveryStockType": {
+                        "type": "string",
+                        "example": "local"
+                      },
+                      "formattedDeliveryTime": {
+                        "type": "string",
+                        "example": "in 1 Werktag"
+                      },
+                      "thirdPartyLocation": {
+                        "type": "string",
+                        "example": "MH"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "cart_update_form": {
+          "type": "object",
+          "properties": {
+            "sku": {
+              "type": "string",
+              "example": "LIHGWA24--"
+            },
+            "quantity": {
+              "type": "number",
+              "example": 5
+            },
+            "drum": {
+              "type": "number",
+              "example": 0
+            },
+            "forceAdd": {
+              "type": "number",
+              "example": 0
+            }
+          }
+        },
+        "cart_share_cart": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {
+                "emailRecipients": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": "email1@sample.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "search_searchresult": {
+          "type": "object",
+          "properties": {
+            "terms": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "example": "leuchte"
+              }
+            },
+            "categories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 1748534
+                  },
+                  "schrackId": {
+                    "type": "string",
+                    "example": "40"
+                  },
+                  "title": {
+                    "type": "string",
+                    "example": "BEGA"
+                  },
+                  "thumbnail": {
+                    "type": "string",
+                    "example": "https://image.schrack.com/menu_pics/f_40_bega.png"
+                  },
+                  "url": {
+                    "type": "string",
+                    "example": "https://schrack-at.local.plan2.net/shop/beleuchtung/bega.html"
+                  }
+                }
+              }
+            },
+            "products": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "sku": {
+                    "type": "string",
+                    "example": "NLKBU039EL"
+                  },
+                  "skuPlain": {
+                    "type": "string",
+                    "example": "NLKBU039EL"
+                  },
+                  "ean": {
+                    "type": "string",
+                    "example": "9004840816112"
+                  },
+                  "thumbnail": {
+                    "type": "string",
+                    "example": "https://image.schrack.com/thumb66x66/f_nlkbu039el.jpg"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "<span class='results-highlight'>Notleuchte</span> KB 4x1W ERT-LED 230V EL Universalmontage"
+                  },
+                  "descriptionPlain": {
+                    "type": "string",
+                    "example": "Notleuchte KB 4x1W ERT-LED 230V EL Universalmontage"
+                  },
+                  "mainPackingUnit": {
+                    "type": "string",
+                    "format": "nullable"
+                  },
+                  "url": {
+                    "type": "string",
+                    "example": "https://schrack-at.local.plan2.net/shop/notlicht-usv-co-blindstromkompensation/notleuchten/rettungszeichenleuchten/leuchten-design-kb-erkennungsweite-14-22-30m/notleuchte-kb-4x1w-ert-led-230v-el-universalmontage-nlkbu039el.html"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "solrConfig": {
+          "type": "object",
+          "properties": {
+            "general": {
+              "type": "object",
+              "properties": {
+                "solrserver": {
+                  "type": "string",
+                  "example": "http://url-to/solr/shopcountry/"
+                },
+                "modules_disable_outputSchracklive_SolrSearch": {
+                  "type": "string",
+                  "example": "0"
+                },
+                "solrserver_common": {
+                  "type": "string",
+                  "example": "http://url-to/solr/common/"
+                },
+                "query_static_order": {
+                  "type": "string",
+                  "example": "0"
+                },
+                "query_sale_enabled": {
+                  "type": "string",
+                  "example": "0"
+                },
+                "highlighting_enabled": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "highlighting_enabled_pages": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "highlighting_fields": {
+                  "type": "string",
+                  "example": "description_textS"
+                },
+                "highlighting_fields_pages": {
+                  "type": "string",
+                  "example": "content"
+                },
+                "highlighting_length": {
+                  "type": "string",
+                  "example": "150"
+                },
+                "highlighting_snippets": {
+                  "type": "string",
+                  "example": "2"
+                },
+                "highlighting_wrap": {
+                  "type": "string",
+                  "example": "<![CDATA[<span class='results-highlight'>|</span>]]>"
+                },
+                "query_static_order_sale": {
+                  "type": "string",
+                  "example": "0"
+                },
+                "query_result_limit": {
+                  "type": "string",
+                  "example": "51"
+                },
+                "query_fields": {
+                  "type": "string",
+                  "example": "related_skus_textTM^30.0 sku_textTS^40.0 schrack_ean_textTM^30.0 schrack_keyword_foreign_textS^30.0 schrack_keyword_foreign_hidden_textS^30.0 name_textStS^500.0 name_textS^20.0 keyword_textStM^200.0 keyword_textM^10.0 description_textS^1.0 category_keyword_textM^5.0 category_name_textStS^10.0 category_names_search_textM^1.0 content^0.5"
+                },
+                "query_fields_dead": {
+                  "type": "string",
+                  "example": "sku_textTS^40.0 schrack_ean_textTM^30.0"
+                },
+                "query_fields_pages": {
+                  "type": "string",
+                  "example": "title_textStS^500.0 title^50.0 nav_title^40.0 tagsH2H3^30.0 subtitle^20.0 content^15.0 keywords^10.0 description^1.0"
+                },
+                "query_boost": {
+                  "type": "string",
+                  "example": "recip(schrack_wws_ranking_intS,1,999999,90)^10.0"
+                },
+                "query_boost_sale": {
+                  "type": "string",
+                  "example": "recip(schrack_wws_ranking_intS,1,999999,90)^10.0"
+                },
+                "query_boost_query": {
+                  "type": "string",
+                  "example": "schrack_hersteller_facet:'01-Schrack-Trinity'^1000.0 OR schrack_sts_is_accessory_boolS:false^100000000.0"
+                },
+                "running_solr_exports": {
+                  "type": "string",
+                  "example": ""
+                },
+                "solrexport_active": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "solrexport_synonyms_active": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "write_password": {
+                  "type": "string",
+                  "example": ""
+                },
+                "read_password": {
+                  "type": "string",
+                  "example": ""
+                },
+                "experiments": {
+                  "type": "string",
+                  "example": ""
+                }
+              }
+            },
+            "schrackdev": {
+              "type": "object",
+              "properties": {
+                "ajaxdispatcher_log_productcollectionsolr": {
+                  "type": "string",
+                  "example": ""
+                },
+                "ajaxdispatcher_log_facetssolr": {
+                  "type": "string",
+                  "example": ""
+                }
+              }
+            },
+            "solr4orders": {
+              "type": "object",
+              "properties": {
+                "solrserver": {
+                  "type": "string",
+                  "example": "http://url-to/solr/shopcountry/"
+                },
+                "solruser": {
+                  "type": "string",
+                  "example": "secretUSER"
+                },
+                "solrpassword": {
+                  "type": "string",
+                  "example": "secret"
+                }
+              }
+            }
+          }
+        },
+        "error_Model400error": {
+          "description": "HTTP Error 400",
+          "type": "object",
+          "properties": {
+            "errors": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "example": "400"
+                  },
+                  "detail": {
+                    "type": "string",
+                    "example": "An error has occured."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "productList": {
+          "type": "object",
+          "properties": {
+            "listsCount": {
+              "type": "integer",
+              "example": 1
+            },
+            "items": {
+              "type": "object",
+              "example": {},
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "title": {
+                  "type": "string",
+                  "example": "Product List N"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Description of product List N"
+                },
+                "productsCount": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "lastModified": {
+                  "type": "string",
+                  "example": "2023-01-11 12:04:47"
+                }
+              }
+            }
+          }
+        },
+        "userArea": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "properties": {
+                "orderID": {
+                  "type": "string",
+                  "example": "390396077"
+                },
+                "docID": {
+                  "type": "string",
+                  "example": "390126021"
+                },
+                "isLa1": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "orderNumber": {
+                  "type": "string",
+                  "example": "390396077"
+                },
+                "documentNumber": {
+                  "type": "string",
+                  "example": "390126021"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Neuausstellung"
+                },
+                "nameProject": {
+                  "type": "string",
+                  "example": "Neuausstellung/-"
+                },
+                "project": {
+                  "type": "string",
+                  "example": "123456"
+                },
+                "creationDate": {
+                  "type": "string",
+                  "example": "23.09.2020"
+                },
+                "creationDateYmd": {
+                  "type": "string",
+                  "example": "2020-09-23"
+                },
+                "status": {
+                  "type": "string",
+                  "example": "invoiced"
+                },
+                "currency": {
+                  "type": "string",
+                  "example": "EUR"
+                },
+                "amount": {
+                  "type": "integer",
+                  "example": 831
+                },
+                "documentType": {
+                  "type": "string",
+                  "example": "invoice"
+                },
+                "display_reference": {
+                  "type": "string",
+                  "example": "01603 Test WebService V40/-"
+                },
+                "schrack_wws_order_number": {
+                  "type": "string",
+                  "example": "390395624"
+                },
+                "sku": {
+                  "type": "string",
+                  "example": "IS509325--"
+                },
+                "qty_ordered": {
+                  "type": "integer",
+                  "example": 2
+                },
+                "schrack_backorder_qty": {
+                  "type": "integer",
+                  "example": 2
+                },
+                "schrack_wws_creation_date": {
+                  "type": "string",
+                  "example": "16.10.2019"
+                },
+                "expected": {
+                  "type": "string",
+                  "example": "18.10.-22.10.2021"
+                },
+                "ExpectedDeliveryWeek": {
+                  "type": "string",
+                  "example": "43"
+                },
+                "ExpectedDeliveryYear": {
+                  "type": "string",
+                  "example": "2019"
+                }
+              }
+            },
+            "listsCount": {
+              "type": "integer",
+              "example": 1
+            },
+            "filterStatusCounts": {
+              "type": "object",
+              "properties": {
+                "all": {
+                  "type": "integer",
+                  "example": 583
+                },
+                "offers": {
+                  "type": "integer",
+                  "example": 289
+                },
+                "orders": {
+                  "type": "integer",
+                  "example": 115
+                },
+                "commissioned": {
+                  "type": "integer",
+                  "example": 85
+                },
+                "delivered": {
+                  "type": "integer",
+                  "example": 36
+                },
+                "invoiced": {
+                  "type": "integer",
+                  "example": 46
+                },
+                "credited": {
+                  "type": "integer",
+                  "example": 12
+                },
+                "offerDocCount": {
+                  "type": "integer",
+                  "example": 299
+                },
+                "orderDocCount": {
+                  "type": "integer",
+                  "example": 524
+                },
+                "deliveryDocCount": {
+                  "type": "integer",
+                  "example": 37
+                },
+                "invoiceDocCount": {
+                  "type": "integer",
+                  "example": 16
+                },
+                "creditmemoDocCount": {
+                  "type": "integer",
+                  "example": 6
+                }
+              }
+            },
+            "filterSet": {
+              "type": "array",
+              "properties": {
+                "uiName": {
+                  "type": "string",
+                  "example": "All"
+                },
+                "paramName": {
+                  "type": "string",
+                  "example": "status_all"
+                },
+                "count": {
+                  "type": "integer",
+                  "example": 589
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "paths": {
+      "/advisor/{myAdvisors}": {
+        "get": {
+          "tags": [
+            "Advisor"
+          ],
+          "operationId": "getAdvisorData",
+          "summary": "Get advisor(s) information for actual user",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "myAdvisors",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "example": "myAdvisors"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "example": "Michael Duchon"
+                      },
+                      "isAvailable": {
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "email": {
+                        "type": "string",
+                        "example": "michael.duchon@schrack.com"
+                      },
+                      "phone": {
+                        "type": "string",
+                        "example": "+43 1 866 85 9000"
+                      },
+                      "mobile": {
+                        "type": "string",
+                        "example": "+43 664 12345678"
+                      },
+                      "fax": {
+                        "type": "string",
+                        "example": "+43 1 86685 99000"
+                      },
+                      "image": {
+                        "type": "string",
+                        "example": "https://image.schrackcdn.com/mab58/shop@schrack.at.jpg"
+                      },
+                      "additionalAdvisors": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "Daniela Leitgeb"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "d.leitgeb@schrack.com"
+                            },
+                            "phone": {
+                              "type": "string",
+                              "example": "+43 1 866 85 9000"
+                            },
+                            "mobile": {
+                              "type": "string",
+                              "example": "+43 664 12345678"
+                            },
+                            "fax": {
+                              "type": "string",
+                              "example": "+43 1 86685 99000"
+                            },
+                            "image": {
+                              "type": "string",
+                              "example": "https://image.schrackcdn.com/mab59/shop@schrack.at.jpg"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "examples": {
+                    "product": {
+                      "value": {
+                        "name": "Donald Schrack",
+                        "isAvailable": true,
+                        "email": "donald.schrack@schrack.com",
+                        "phone": "+43 1 866 85 9000",
+                        "mobile": "+43 664 12345678",
+                        "fax": "+43 1 86685 99000",
+                        "image": "https://image.schrackcdn.com/mab58/shop@schrack.at.jpg",
+                        "additionalAdvisors": [
+                          {
+                            "name": "Mickey Technik",
+                            "email": "m.technik@schrack.com",
+                            "phone": "+43 1 866 85 9000",
+                            "mobile": "+43 664 12345678",
+                            "fax": "+43 1 86685 99000",
+                            "image": "https://image.schrackcdn.com/mab59/shop@schrack.at.jpg"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request"
+            },
+            "401": {
+              "description": "Unauthorized"
+            },
+            "404": {
+              "description": "Not Found"
+            },
+            "500": {
+              "description": "Unexpected Error"
+            }
+          }
+        }
+      },
+      "/category/{infotype}/{id}": {
+        "get": {
+          "tags": [
+            "Categories"
+          ],
+          "operationId": "getCategory",
+          "summary": "Get catergory information based on provided id",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "infotype",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "information",
+                  "price",
+                  "availability",
+                  "combined"
+                ],
+                "example": "information"
+              }
+            },
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "example": "1745444"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "entity_id": {
+                        "type": "string",
+                        "example": "1745444"
+                      },
+                      "entity_type_id": {
+                        "type": "string",
+                        "example": "3"
+                      },
+                      "attribute_set_id": {
+                        "type": "string",
+                        "example": "0"
+                      },
+                      "parent_id": {
+                        "type": "string",
+                        "example": "1745443"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2020-11-12T00:07:13+01:00"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "example": "2020-11-12 00:07:14"
+                      },
+                      "path": {
+                        "type": "string",
+                        "example": "1/2/1745229/1745332/1745443/1745444"
+                      },
+                      "position": {
+                        "type": "string",
+                        "example": "3362"
+                      },
+                      "level": {
+                        "type": "string",
+                        "example": "5"
+                      },
+                      "children_count": {
+                        "type": "string",
+                        "example": "0"
+                      },
+                      "custom_layout_update": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "SCHRACK vorkonfektionierte Installationskabel der QUICK CONNECT LINE basieren auf dem Schrack Technik Installationskabel Cat.7 S/FTP AWG23 1000 MHz. Diese werden vorkonfektioniert geliefert und entsprechen der Klasse Ea. Sie werden in der Farbe RAL5015 (blau) geliefert. Die Installationskabel sind bereits mit zwei Kontaktblöcken bestückt und professionell vorkonfektioniert. Beide Kabelenden sind mit Einziehschutz, Laminieretikett und Seriennummer versehen. Jedes Kabel wird im Werk getestet und das Prüfprotokoll beigepackt. Die vorkonfektionierten Installationskabel werden nur mit den Kontaktblöcken geliefert.<br>Folgende Module können nach dem Verlegen des Kabels werkzeuglos mit nur wenigen Handgriffen auf die Kontaktblöcke aufgeschnappt werden:<br><tab>•QUICK CONNECT LINE Buchse RJ45 geschirmt Cat.6a (SFB), PoE+<br><tab>•QUICK CONNECT LINE Stecker RJ45 geschirmt Cat.6a, PoE+<br><tab>•QUICK CONNECT LINE Kupplung / Verlängerung geschirmt Cat.6a, PoE+"
+                      },
+                      "meta_keywords": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "schrack_facet_list": {
+                        "type": "string",
+                        "example": "schrack_dop_euroclass,schrack_produkt"
+                      },
+                      "schrack_property_list": {
+                        "type": "string",
+                        "example": "schrack_preiseinheit,schrack_mengeneinheit,schrack_nettolaenge,schrack_nettobreite,schrack_nettohoehe,schrack_nettotiefe,schrack_nettodurchmesser,schrack_nettogewicht,schrack_algewicht,schrack_cu_gewicht,schrack_verlustleistung,schrack_ambienttemperaturemin,schrack_ambienttemperaturemax,schrack_dop_euroclass,schrack_dop_smoke_production,schrack_dop_droplets,schrack_dop_acidity"
+                      },
+                      "available_sort_by": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "custom_use_parent_settings": {
+                        "type": "string",
+                        "example": "0"
+                      },
+                      "custom_apply_to_products": {
+                        "type": "string",
+                        "example": "0"
+                      },
+                      "is_active": {
+                        "type": "string",
+                        "example": "1"
+                      },
+                      "include_in_menu": {
+                        "type": "string",
+                        "example": "1"
+                      },
+                      "custom_design": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "url_key": {
+                        "type": "string",
+                        "example": "quick-connect-line-vorkonfektionierte-installationskabel"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "QUICK CONNECT LINE vorkonfektionierte Installationskabel"
+                      },
+                      "schrack_group_id": {
+                        "type": "string",
+                        "example": "87-01-06#87-01-06/18#18/18-10#18-10/18-10-01"
+                      },
+                      "schrack_strategic_pillar": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "schrack_image_url": {
+                        "type": "string",
+                        "example": "foto/f_hslvi7g15-v04.jpg"
+                      },
+                      "schrack_thumbnail_url": {
+                        "type": "string",
+                        "example": "thumb66x66/f_hslvi7g15-v04.jpg"
+                      },
+                      "url_path": {
+                        "type": "string",
+                        "example": "netzwerktechnik-sat/netzwerkverkabelung-kupfer/quick-connect-line-cat-6a-stp-system-vorkonfektioniert/quick-connect-line-vorkonfektionierte-installationskabel.html"
+                      },
+                      "custom_design_from": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "custom_design_to": {
+                        "type": "string",
+                        "nullable": true
+                      }
+                    }
+                  },
+                  "examples": {
+                    "product_information": {
+                      "value": {
+                        "entity_id": "1745444",
+                        "entity_type_id": "3",
+                        "attribute_set_id": "0",
+                        "parent_id": "1745443",
+                        "created_at": "2020-11-12T00:07:13+01:00",
+                        "updated_at": "2020-11-12 00:07:14",
+                        "path": "1/2/1745229/1745332/1745443/1745444",
+                        "position": "3362",
+                        "level": "5",
+                        "children_count": "0",
+                        "custom_layout_update": null,
+                        "description": "SCHRACK vorkonfektionierte Installationskabel der QUICK CONNECT LINE basieren auf dem Schrack Technik Installationskabel Cat.7 S/FTP AWG23 1000 MHz. Diese werden vorkonfektioniert geliefert und entsprechen der Klasse Ea. Sie werden in der Farbe RAL5015 (blau) geliefert. Die Installationskabel sind bereits mit zwei Kontaktblöcken bestückt und professionell vorkonfektioniert. Beide Kabelenden sind mit Einziehschutz, Laminieretikett und Seriennummer versehen. Jedes Kabel wird im Werk getestet und das Prüfprotokoll beigepackt. Die vorkonfektionierten Installationskabel werden nur mit den Kontaktblöcken geliefert.<br>Folgende Module können nach dem Verlegen des Kabels werkzeuglos mit nur wenigen Handgriffen auf die Kontaktblöcke aufgeschnappt werden:<br><tab>•QUICK CONNECT LINE Buchse RJ45 geschirmt Cat.6a (SFB), PoE+<br><tab>•QUICK CONNECT LINE Stecker RJ45 geschirmt Cat.6a, PoE+<br><tab>•QUICK CONNECT LINE Kupplung / Verlängerung geschirmt Cat.6a, PoE+",
+                        "meta_keywords": null,
+                        "schrack_facet_list": "schrack_dop_euroclass,schrack_produkt",
+                        "schrack_property_list": "schrack_preiseinheit,schrack_mengeneinheit,schrack_nettolaenge,schrack_nettobreite,schrack_nettohoehe,schrack_nettotiefe,schrack_nettodurchmesser,schrack_nettogewicht,schrack_algewicht,schrack_cu_gewicht,schrack_verlustleistung,schrack_ambienttemperaturemin,schrack_ambienttemperaturemax,schrack_dop_euroclass,schrack_dop_smoke_production,schrack_dop_droplets,schrack_dop_acidity",
+                        "available_sort_by": null,
+                        "custom_use_parent_settings": "0",
+                        "custom_apply_to_products": "0",
+                        "is_active": "1",
+                        "include_in_menu": "1",
+                        "custom_design": null,
+                        "url_key": "quick-connect-line-vorkonfektionierte-installationskabel",
+                        "name": "QUICK CONNECT LINE vorkonfektionierte Installationskabel",
+                        "schrack_group_id": "87-01-06#87-01-06/18#18/18-10#18-10/18-10-01",
+                        "schrack_strategic_pillar": null,
+                        "schrack_image_url": "foto/f_hslvi7g15-v04.jpg",
+                        "schrack_thumbnail_url": "thumb66x66/f_hslvi7g15-v04.jpg",
+                        "url_path": "netzwerktechnik-sat/netzwerkverkabelung-kupfer/quick-connect-line-cat-6a-stp-system-vorkonfektioniert/quick-connect-line-vorkonfektionierte-installationskabel.html",
+                        "custom_design_from": null,
+                        "custom_design_to": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/login/": {
+        "post": {
+          "tags": [
+            "User actions"
+          ],
+          "operationId": "userLogin",
+          "summary": "User Login to his/her Account",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Login to users Account",
+                  "type": "object",
+                  "required": [
+                    "email",
+                    "password"
+                  ],
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "example": "m.mustermann@email.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "MyTopSecret6assw0rd!"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "token: 6380e306e247dfc274d962bd9c8ad6ad ",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "token": {
+                        "type": "string",
+                        "example": "6380e306e247dfc274d962bd9c8ad6ad"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "success: false",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "severity": {
+                        "type": "string",
+                        "example": "info | warning | error | fatal"
+                      },
+                      "code": {
+                        "type": "integer",
+                        "example": 400
+                      },
+                      "message": {
+                        "type": "string",
+                        "example": "UNSUPPORTED_ACTION | USER_IS_LOGGED_IN | EMAIL_PASSWORD_REQUIRED | USER_NOT_CONFIRMED | INVALID_EMAIL_OR_PASSWORD | CONTACT_SYSTEM_ADMIN"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/register/": {
+        "post": {
+          "tags": [
+            "User actions"
+          ],
+          "operationId": "userRegistration",
+          "summary": "Register a new user in the Schrack system",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Registration to Schrack",
+                  "type": "object",
+                  "required": [
+                    "email",
+                    "password",
+                    "salutation",
+                    "firstname",
+                    "lastname",
+                    "company",
+                    "vat",
+                    "phone"
+                  ],
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "example": "m.mustermann@email.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "MyTopSecret6assw0rd!"
+                    },
+                    "salutation": {
+                      "type": "string",
+                      "example": "Herr"
+                    },
+                    "firstname": {
+                      "type": "string",
+                      "example": "Max"
+                    },
+                    "lastname": {
+                      "type": "string",
+                      "example": "Mustermann"
+                    },
+                    "company": {
+                      "type": "string",
+                      "example": "Musterfirma GmbH"
+                    },
+                    "company2": {
+                      "type": "string",
+                      "example": "Alternativfirma GmbH"
+                    },
+                    "department": {
+                      "type": "string",
+                      "example": "Einkauf"
+                    },
+                    "contactperson": {
+                      "type": "string",
+                      "example": "Emil Einkauf"
+                    },
+                    "corporateRegisterNumber": {
+                      "type": "string",
+                      "example": "189025d"
+                    },
+                    "vat": {
+                      "type": "string",
+                      "example": "AT01234567"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "example": "+43 676 1234565"
+                    },
+                    "mobile": {
+                      "type": "string",
+                      "example": "+43 676 1234565"
+                    },
+                    "fax": {
+                      "type": "string",
+                      "example": "+43 676 1234565"
+                    },
+                    "website": {
+                      "type": "string",
+                      "example": "https://schrack.com"
+                    },
+                    "gender": {
+                      "type": "string",
+                      "example": "male"
+                    },
+                    "student": {
+                      "type": "boolean",
+                      "example": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "success: true ",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "success": {
+                        "type": "boolean",
+                        "example": true
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "success: false",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "success": {
+                        "type": "boolean",
+                        "example": false
+                      },
+                      "errors": {
+                        "type": "array",
+                        "items": {},
+                        "example": []
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/translations/{language}/{mainscope}/{scope}": {
+        "get": {
+          "tags": [
+            "Translations"
+          ],
+          "operationId": "getTranslation",
+          "summary": "Get translation(s) based on passed language and scope",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "language",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "de_AT",
+                  "bs_BA",
+                  "nl_NL",
+                  "bg_BG",
+                  "en_GB",
+                  "cs_CZ",
+                  "de_DE",
+                  "hr_HR",
+                  "hu_HU",
+                  "nl_NL",
+                  "pl_PL",
+                  "ro_RO",
+                  "sr_RS",
+                  "ru_RU",
+                  "ar_SA",
+                  "sl_SI",
+                  "sk_SK"
+                ]
+              }
+            },
+            {
+              "in": "path",
+              "name": "mainscope",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "Exanto_Heidelpay",
+                  "Find_Feed",
+                  "Mage_Adminhtml",
+                  "Mage_AdminNotification",
+                  "Mage_Api",
+                  "Mage_Authorizenet",
+                  "Mage_Backup",
+                  "Mage_Bundle",
+                  "Mage_Catalog",
+                  "Mage_CatalogInventory",
+                  "Mage_CatalogRule",
+                  "Mage_CatalogSearch",
+                  "Mage_Centinel",
+                  "Mage_Checkout",
+                  "Mage_Chronopay",
+                  "Mage_Cms",
+                  "Mage_Compiler",
+                  "Mage_Connect",
+                  "Mage_Contacts",
+                  "Mage_Core",
+                  "Mage_Cron",
+                  "Mage_Customer",
+                  "Mage_Cybermut",
+                  "Mage_Cybersource",
+                  "Mage_Dataflow",
+                  "Mage_Directory",
+                  "Mage_Downloadable",
+                  "Mage_Eav",
+                  "Mage_Eway",
+                  "Mage_Flo2Cash",
+                  "Mage_GiftMessage",
+                  "Mage_GoogleAnalytics",
+                  "Mage_GoogleBase",
+                  "Mage_GoogleCheckout",
+                  "Mage_GoogleOptimizer",
+                  "Mage_Ideal",
+                  "Mage_ImportExport",
+                  "Mage_Index",
+                  "Mage_Install",
+                  "Mage_Log",
+                  "Mage_Media",
+                  "Mage_Newsletter",
+                  "Mage_Ogone",
+                  "Mage_Oscommerce",
+                  "Mage_Page",
+                  "Mage_PageCache",
+                  "Mage_Paybox",
+                  "Mage_Paygate",
+                  "Mage_Payment",
+                  "Mage_Paypal",
+                  "Mage_PaypalUk",
+                  "Mage_Poll",
+                  "Mage_ProductAlert",
+                  "Mage_Protx",
+                  "Mage_Rating",
+                  "Mage_Reports",
+                  "Mage_Review",
+                  "Mage_Rss",
+                  "Mage_Rule",
+                  "Mage_Sales",
+                  "Mage_SalesRule",
+                  "Mage_Sendfriend",
+                  "Mage_Shipping",
+                  "Mage_Sitemap",
+                  "Mage_Strikeiron",
+                  "Mage_Tag",
+                  "Mage_Tax",
+                  "Mage_Usa",
+                  "Mage_Weee",
+                  "Mage_Widget",
+                  "Mage_Wishlist",
+                  "Mage_XmlConnect",
+                  "PayUnity_PUpay",
+                  "Phoenix_CashOnDelivery",
+                  "Phoenix_Moneybookers",
+                  "Schracklive_Account",
+                  "Schracklive_App",
+                  "Schracklive_Datanorm",
+                  "Schracklive_Mobile",
+                  "Schracklive_Schrack",
+                  "Schracklive_SchrackCatalog",
+                  "Schracklive_SchrackCheckout",
+                  "Schracklive_SchrackCustomer",
+                  "Schracklive_SchrackPage",
+                  "Schracklive_SchrackShipping",
+                  "Schracklive_SchrackWishlist",
+                  "Schracklive_SolrSearch",
+                  "Schracklive_Tools",
+                  "Schracklive_Translation",
+                  "Schracklive_Wws",
+                  "STS_Datanorm"
+                ]
+              }
+            },
+            {
+              "in": "path",
+              "name": "scope",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "example": "all"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "STS translation key": {
+                            "type": "string",
+                            "example": "'Add Item': 'Neuer Eintrag'"
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "Add Item": {
+                            "type": "string",
+                            "example": "Neuer Eintrag"
+                          },
+                          "At the moment media download is not available. Please try it again later.": {
+                            "type": "string",
+                            "example": "Der Mediendownload steht momentan nicht zur Verfügung. Bitte versuchen Sie es später erneut."
+                          },
+                          "Barcode Label Print": {
+                            "type": "string",
+                            "example": "Etikettendruck"
+                          },
+                          "Cache cleared": {
+                            "type": "string",
+                            "example": "Cache geleert"
+                          },
+                          "Download Media Files": {
+                            "type": "string",
+                            "example": "Medien downloaden"
+                          },
+                          "Edit Item '%s' (%s)": {
+                            "type": "string",
+                            "example": "Bearbeite Eintrag '%s' (%s)"
+                          },
+                          "Files committed for locale %s": {
+                            "type": "string",
+                            "example": "Dateien für Sprachcode %s übermittelt"
+                          },
+                          "Files loaded": {
+                            "type": "string",
+                            "example": "Dateien geladen"
+                          },
+                          "Files saved for locale %s": {
+                            "type": "string",
+                            "example": "Dateien für Sprachcode %s gespeichert"
+                          },
+                          "Item does not exist": {
+                            "type": "string",
+                            "example": "Eintrag existiert nicht"
+                          },
+                          "Item Information": {
+                            "type": "string",
+                            "example": "Information zu Eintrag"
+                          },
+                          "Item Manager": {
+                            "type": "string",
+                            "example": "Eintrag Manager"
+                          },
+                          "Item News": {
+                            "type": "string",
+                            "example": "Eintrag Neuigkeiten"
+                          },
+                          "Item was successfully deleted": {
+                            "type": "string",
+                            "example": "Eintrag wurde erfolgreich gelöscht"
+                          },
+                          "Item was successfully saved": {
+                            "type": "string",
+                            "example": "Eintrag wurde erfolgreich gespeichert"
+                          },
+                          "Items Manager": {
+                            "type": "string",
+                            "example": "Einträge Manager"
+                          },
+                          "Load from files": {
+                            "type": "string",
+                            "example": "Von Dateien laden"
+                          },
+                          "Locale": {
+                            "type": "string",
+                            "example": "Sprachcode"
+                          },
+                          "Media Download": {
+                            "type": "string",
+                            "example": "Dateiendownload"
+                          },
+                          "Module Name": {
+                            "type": "string",
+                            "example": "Modulname"
+                          },
+                          "No files changed for locale %s": {
+                            "type": "string",
+                            "example": "Keine Dateien von Sprachcode %s verändert"
+                          },
+                          "No strings changed": {
+                            "type": "string",
+                            "example": "Keine Texte geändert"
+                          },
+                          "Not translated": {
+                            "type": "string",
+                            "example": "Nicht Übersetzt"
+                          },
+                          "Nothing was changed": {
+                            "type": "string",
+                            "example": "Keine Veränderungen"
+                          },
+                          "Original": {
+                            "type": "string",
+                            "example": "Original"
+                          },
+                          "Orphaned": {
+                            "type": "string",
+                            "example": "Verwaist"
+                          },
+                          "Print Labels With Quantity": {
+                            "type": "string",
+                            "example": "Mit Mengen drucken"
+                          },
+                          "Save and Commit": {
+                            "type": "string",
+                            "example": "Speichern und Übermitteln"
+                          },
+                          "Schrack Technik media download offers you the opportunity to download all available product information by one click. Choose between fotos, datasheets, catalogue page or more and get all downloads for products in your shopping cart, parts list or offers.": {
+                            "type": "string",
+                            "example": "&lt;strong&gt;Dateiendownload:&lt;/strong&gt; Datenblätter, CAD Zeichnungen, Fotos, Katalogseiten und alle weiteren Downloads zu Ihren Produkten.&lt;br /&gt;  &lt;strong&gt;Etikettendruck:&lt;/strong&gt; Etiketten downloaden und drucken.&lt;br /&gt; Mit der Auswahl der Option Mit Mengen drucken enthält der EAN Code automatisch jene Menge, die Sie im Warenkorb/Merkliste beim Artikel eingegeben haben. Dadurch übernimmt ihr Scanner oder die Schrack LiVE App diese Menge beim Scannen des EAN Codes.&lt;br /&gt;   Nutzen Sie diese Möglichkeit zum einfachen und schnellen Bestellen der Produkte."
+                          },
+                          "Source": {
+                            "type": "string",
+                            "example": "Quelle"
+                          },
+                          "Translated": {
+                            "type": "string",
+                            "example": "Übersetzt"
+                          },
+                          "Unable to find item to save": {
+                            "type": "string",
+                            "example": "Konnte zu Speichernden Eintrag nicht finden"
+                          },
+                          "products-menu-navigation": {
+                            "type": "string",
+                            "example": "Shop"
+                          },
+                          "Your selected quantity may result in a longer delivery time. Please select the available quantity currently in stock or pick an alternative item. Get in touch if you would like us to recommend a suitable article.": {
+                            "type": "string",
+                            "example": "Ihre gewählte Menge kann zu einer längeren Lieferzeit führen. Wir empfehlen Ihnen, die Verfügbare Lagermenge zu wählen oder einen Ersatzartikel zu suchen. Wir beraten Sie gerne."
+                          }
+                        },
+                        "example": {
+                          "Add Item": "Neuer Eintrag",
+                          "At the moment media download is not available. Please try it again later.": "Der Mediendownload steht momentan nicht zur Verfügung. Bitte versuchen Sie es später erneut.",
+                          "Barcode Label Print": "Etikettendruck",
+                          "Cache cleared": "Cache geleert",
+                          "Download Media Files": "Medien downloaden",
+                          "Edit Item '%s' (%s)": "Bearbeite Eintrag '%s' (%s)",
+                          "Files committed for locale %s": "Dateien für Sprachcode %s übermittelt",
+                          "Files loaded": "Dateien geladen",
+                          "Files saved for locale %s": "Dateien für Sprachcode %s gespeichert",
+                          "Item does not exist": "Eintrag existiert nicht",
+                          "Item Information": "Information zu Eintrag",
+                          "Item Manager": "Eintrag Manager",
+                          "Item News": "Eintrag Neuigkeiten",
+                          "Item was successfully deleted": "Eintrag wurde erfolgreich gelöscht",
+                          "Item was successfully saved": "Eintrag wurde erfolgreich gespeichert",
+                          "Items Manager": "Einträge Manager",
+                          "Load from files": "Von Dateien laden",
+                          "Locale": "Sprachcode",
+                          "Media Download": "Dateiendownload",
+                          "Module Name": "Modulname",
+                          "No files changed for locale %s": "Keine Dateien von Sprachcode %s verändert",
+                          "No strings changed": "Keine Texte geändert",
+                          "Not translated": "Nicht Übersetzt",
+                          "Nothing was changed": "Keine Veränderungen",
+                          "Original": "Original",
+                          "Orphaned": "Verwaist",
+                          "Print Labels With Quantity": "Mit Mengen drucken",
+                          "Save and Commit": "Speichern und Übermitteln",
+                          "Schrack Technik media download offers you the opportunity to download all available product information by one click. Choose between fotos, datasheets, catalogue page or more and get all downloads for products in your shopping cart, parts list or offers.": "&lt;strong&gt;Dateiendownload:&lt;/strong&gt; Datenblätter, CAD Zeichnungen, Fotos, Katalogseiten und alle weiteren Downloads zu Ihren Produkten.&lt;br /&gt;  &lt;strong&gt;Etikettendruck:&lt;/strong&gt; Etiketten downloaden und drucken.&lt;br /&gt; Mit der Auswahl der Option Mit Mengen drucken enthält der EAN Code automatisch jene Menge, die Sie im Warenkorb/Merkliste beim Artikel eingegeben haben. Dadurch übernimmt ihr Scanner oder die Schrack LiVE App diese Menge beim Scannen des EAN Codes.&lt;br /&gt;   Nutzen Sie diese Möglichkeit zum einfachen und schnellen Bestellen der Produkte.",
+                          "Source": "Quelle",
+                          "Translated": "Übersetzt",
+                          "Unable to find item to save": "Konnte zu Speichernden Eintrag nicht finden",
+                          "products-menu-navigation": "Shop",
+                          "Your selected quantity may result in a longer delivery time. Please select the available quantity currently in stock or pick an alternative item. Get in touch if you would like us to recommend a suitable article.": "Ihre gewählte Menge kann zu einer längeren Lieferzeit führen. Wir empfehlen Ihnen, die Verfügbare Lagermenge zu wählen oder einen Ersatzartikel zu suchen. Wir beraten Sie gerne."
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+contentType: yaml

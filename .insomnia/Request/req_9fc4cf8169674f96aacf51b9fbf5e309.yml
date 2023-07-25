@@ -1,0 +1,21 @@
+_id: req_9fc4cf8169674f96aacf51b9fbf5e309
+type: Request
+parentId: wrk_1da0d181828c43e0b9e77fb5f21609f8
+modified: 1690292620388
+created: 1690292433168
+url: https://test-de.schrack.com
+name: First request
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1690292433168
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
