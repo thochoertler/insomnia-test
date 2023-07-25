@@ -1,7 +1,7 @@
 _id: spc_cbafaf631e5a4c16aa5ef51957cdedfe
 type: ApiSpec
 parentId: wrk_1da0d181828c43e0b9e77fb5f21609f8
-modified: 1690292424546
+modified: 1690293237653
 created: 1690291657021
 fileName: New Document
 contents: >-
@@ -28,7 +28,7 @@ contents: >-
       },
       {
         "name": "SolrConfig",
-        "description": "Get configurations for SOLR Server."
+        "description": "Get configurations for SOLR Server. haha."
       },
       {
         "name": "Categories",
